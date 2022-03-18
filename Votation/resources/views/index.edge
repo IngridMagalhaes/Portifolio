@@ -1,0 +1,25 @@
+@layout('main')
+@section('content')
+
+   @include('includes/welcome')
+   <div class="row mt-4">
+
+        @each(cand in cands)
+        <div class="col-12 col-sm-12 col-md-4 col-lg-4 mb-4">
+          <div class="card" >
+             <img style="height: 230px; object-fit: cover" src="{{cand.photo}}" alt="...">
+             <div class="card-body">
+                 <h5 class="card-title">{{cand.name}}</h5>
+                  <p class="card-text">{{cand.office}}</p>
+                 <p class="card-text">{{substr(cand.description)}}</p>
+                 <a href="/cand/{{cand.id}}" class="btn btn-primary">Ir para o Perfil</a>
+             </div>
+          </div>          
+        </div>  
+        @endeach
+
+ 
+      </div>
+
+
+@endsection

@@ -1,0 +1,46 @@
+@layout('main')
+
+@section('content')
+
+    <div class="row mt-4">
+    	<div class="col-12 col-sm-12 col-md-8 col-lg-6 mx-auto">
+    		<div class="card">
+    			<div class="card-header">Votação - Empresa X</div>
+    			<div class="card-body">
+    				<h5 class="card-title">Login</h5>
+    				@if(old('message'))
+    				   <div class="alert alert-{{old('type')}}" role="alert">
+                          {{old('message')}}
+                        </div>
+
+    				@endif
+    				
+    				<form method="POST" action="/session">
+    					{{csrfField()}}
+                       <div class="form-group">
+                           <label for="email">Email</label>
+                           <input type="email" class="form-control" id="email" placeholder="Digite seu email" name="email">
+                           
+                        </div>
+                        <div class="form-group">
+                           <label for="password">Password</label>
+                           <input type="password" class="form-control" id="password" placeholder="Digite sua senha" name="password">
+                        </div>
+                        <div class="form-group form-check">
+                           <input type="checkbox" class="form-check-input" id="remember">
+                           <label class="form-check-label" for="remember">Check me out</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Login</button>
+                    </form>
+
+                    <div class="row mt-4">
+                    	<div class="col-12 text-center">
+                    		<a href="/register">Cadastrar-se</a>
+                    	</div>
+                    </div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+
+@endsection

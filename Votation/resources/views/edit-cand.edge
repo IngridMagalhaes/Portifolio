@@ -1,0 +1,42 @@
+@layout('main')
+
+@section('content')
+
+  <div class="row mt-4">
+       <div class="col-12">
+         <h2>Edite o perfil do Candidato - {{cand.name}}</h2>
+         <p>Edite os perfies dos candidatos à funcionário destaque da empresa</p>
+       </div>
+  </div>
+  <div class="row">
+  	<div class="col-12 col-sm-12 col-md-8 col-lg-6 mx-auto">
+  		<div class="card">
+  			<div class="card-header">Votação - Empresa X</div>
+  			<div class="card-body">
+  				<div class="card-title">Edite o perfil do Candidato</div>
+  				<form method="POST" action="/cand/{{cand.id}}/edit">
+            {{csrfField()}}
+  					<div class="form-group">
+  						<label for="name">Nome</label>
+  						<input type="text" placeholder="Digite o nome do candidato" value="{{cand.name}}" class="form-group" name="name" id="name">
+  					</div>
+             <div class="form-group">
+              <label for="office">Escritório</label>
+              <input type="text" placeholder="Digite o escritório do candidato" value="{{cand.office}}" class="form-group" name="office" id="office">
+            </div>
+  					<div class="form-group">
+  						<label for="photo">Foto</label>
+  						<input type="text" placeholder="Digite o url da Foto do Candidato" value="{{cand.photo}}" class="form-group" name="photo" id="photo">
+  					</div>
+  					<div class="form-group">
+  						<label for="description">Descrição</label>
+  						<textarea  placeholder="Digite a descrição do candidato"  class="form-control" name="description" id="description">{{cand.description}}</textarea>
+  					</div>
+  					<button class="btn btn-primary btn-block">Salvar</button>
+  				</form>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+
+@endsection

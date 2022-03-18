@@ -1,0 +1,76 @@
+@layout('main')
+
+@section('content')
+
+
+    <div class="row mt-4" style="align-items: center;">
+       <div class="col-12 col-md-6">
+         <h2>Gerenciar Candidatos</h2>
+         <p>Gerencie os perfies dos candidatos à funcionário destaque da empresa</p>
+       </div>
+       <div class="col-12 col-md-6 text-right">
+       	<a href="/create-cand" class="btn btn-primary">Cadastrar Candidato</a>       	
+       </div>
+    </div>
+    <div class="row">
+      @if(old('message'))
+               <div class="alert alert-{{old('type')}}" role="alert">
+                          {{old('message')}}
+                </div>
+
+      @endif
+    </div>
+    <div class="row">
+    	<div class="col-12">
+    		<div class="table-responsive">
+               <table class="table">
+                  <tr>
+                 	<th>#</th>
+                  	<th>Name</th>
+                  	<th>Office</th>
+                  	<th>Status</th>
+                  	<th>Data</th>
+                  	<th>Ações</th>
+                  </tr>
+
+                  @each(cand in cands)
+                                    <tr>
+                  	<td>{{$loop.index + 1}}</td>
+                  	<td>{{cand.name}}</td>
+                  	<td>{{cand.office}}</td>
+                  	<td>
+                      @if(cand.status ==1)
+                        Ativo
+                      @else 
+                        Inativo
+                      @endif
+                    </td>
+                  	<td>{{cand.created_at}}</td>
+                  	<td>
+                  		<div class="btn-group" role="group" aria-label="Basic example">
+                           <a  href="/cand/{{cand.id}}"  class="btn btn-primary">Ver</a>
+                           <a  href="/cand/{{cand.id}}/edit" class="btn btn-info">Editar</a>
+                           <button type="button" onclick=" confirmDelete({{cand.id}})" class="btn btn-danger">Excluir</button>
+                        </div>
+                  	</td>
+                  </tr>
+                  @endeach
+                  
+
+                  
+               </table>
+            </div>
+    	</div>
+    </div>
+
+    <script type="text/javascript">
+     
+      function confirmDelete(id) {
+       if(confirm('Deseja realmente apagar este perfil?')){
+          var url = window.location.origin+'/cand/'+id+'/destroy'
+          window.location = url
+       }
+      }
+    </script>
+
+@endsection

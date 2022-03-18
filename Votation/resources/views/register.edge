@@ -1,0 +1,57 @@
+@layout('main')
+
+@section('content')
+
+  {{--Name, nickname, email, password, confirm_password--}}
+
+  <div class="row mt-4">
+  	<div class="col-12 col-sm-12 col-md-8 col-lg-6 mx-auto">
+  		<div class="card">
+  			<div class="card-header">Votação - Empresa X</div>
+  			<div class="card-body">
+  				<h5 class="card-title">Cadastro do Usuário</h5>
+  				<form method="POST" action="/create-user">
+  					{{csrfField()}}
+  					<div class="form-group">
+  						<label for="name">Name</label>
+  						<input type="text" id="name" placeholder="Digite seu nome" value="{{old('name')}}" class="form-control {{hasErrorFor('name') ? 'is-invalid' : ''}}" name="name">
+  						<div class="invalid-feedback">
+  							{{getErrorFor('name')}}
+  						</div>					
+  					</div>
+  					
+  					<div class="form-group">
+  						<label for="email">Email</label>
+  						<input type="email" id="email" placeholder="Digite seu email" value="{{old('email')}}" class="form-control {{hasErrorFor('email') ? 'is-invalid' : ''}}" name="email">
+  						<div class="invalid-feedback">
+  							{{getErrorFor('email')}}
+  						</div>	
+  					</div>
+  					<div class="form-group">
+  						<label for="password">Password</label>
+  						<input type="password" id="password" placeholder="Digite sua senha" class="form-control {{hasErrorFor('password') ? 'is-invalid' : ''}}" name="password">
+  						<div class="invalid-feedback">
+  							{{getErrorFor('password')}}
+  						</div>	
+  					</div>
+  					<div class="form-group">
+  						<label for="password_confirmation">Confirm Password</label>
+  						<input type="password" id="password_confirmation" placeholder="Confirme sua senha" class="form-control {{hasErrorFor('password') ? 'is-invalid' : ''}}" name="password_confirmation">
+  						<div class="invalid-feedback">
+  							{{getErrorFor('password')}}
+  						</div>	
+  					</div>
+  					<button class="btn btn-primary btn-block">Cadastrar</button>
+  				</form>
+  				<div class="row mt-4">
+                    	<div class="col-12 text-center">
+                    		<a href="/login">Login</a>
+                    	</div>
+                    </div>
+  			</div>
+  		</div>
+  		
+  	</div>
+  </div>
+
+@endsection

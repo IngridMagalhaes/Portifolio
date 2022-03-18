@@ -1,0 +1,42 @@
+@layout('main')
+
+@section('content')
+
+  <div class="row mt-4">
+       <div class="col-12">
+         <h2>Cadastrar Candidato</h2>
+         <p>Cadastre os candidatos da semana da Empresa X</p>
+       </div>
+  </div>
+  <div class="row">
+  	<div class="col-12 col-sm-12 col-md-8 col-lg-6 mx-auto">
+  		<div class="card">
+  			<div class="card-header">Votação - Empresa X</div>
+  			<div class="card-body">
+  				<div class="card-title">Cadastrar Candidato</div>
+  				<form method="POST" action="/store-cand">
+            {{csrfField()}}
+  					<div class="form-group">
+  						<label for="name">Nome</label>
+  						<input type="text" placeholder="Digite o nome do candidato" class="form-group" name="name" id="name">
+  					</div>
+            <div class="form-group">
+              <label for="office">Escritório</label>
+              <input type="text" placeholder="Digite o escritório do candidato" class="form-group" name="office" id="office">
+            </div>
+  					<div class="form-group">
+  						<label for="photo">Foto</label>
+  						<input type="text" placeholder="Digite o url da foto" class="form-group" name="photo" id="photo">
+  					</div>
+  					<div class="form-group">
+  						<label for="description">Descrição do Candidato</label>
+  						<textarea  placeholder="Digite a descrição do candidato" class="form-control" name="description" id="description"></textarea>
+  					</div>
+  					<button class="btn btn-primary btn-block"> Cadastrar</button>
+  				</form>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+
+@endsection
