@@ -1,0 +1,52 @@
+body{
+    background: url(modelo-bg.jpg) center;  
+    color: white; 
+    font-weight: bold;
+ 
+    
+}
+.mv-auto{
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5%;
+}
+
+.btn-wifi{
+    color: honeydew;
+    background:rgb(79, 77, 179) ;
+    
+}
+.btn-wifi:hover{
+    color: white;
+    background: rgb(48, 7, 233);
+}
+.btn-cad:hover{
+   color: white;
+   background: darkblue;
+}
+.face, .insta, .twitter{
+    margin-left: 30px;
+       
+}
+form .btn{
+    border-radius: 4rem;
+}
+.form-group input{
+    height: auto;
+    border-radius: 2rem;
+    background-color: #fff0;
+    color: white;
+    text-align: center; 
+    font-weight: bold ;  
+
+}
+.name{
+    color: white;
+}
+
+.form-control {
+    border: 1px solid #fff;
+}
+
