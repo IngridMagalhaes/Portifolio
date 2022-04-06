@@ -1,5 +1,5 @@
 body{
-    background: url(modelo-bg.jpg) center;  
+    background: url(modelo-bg.jpg) center ;  
     color: white; 
     font-weight: bold;
  
@@ -11,6 +11,9 @@ body{
     align-items: center;
     justify-content: center;
     border-radius: 5%;
+}
+.bord{
+    border-radius: 50%;
 }
 
 .btn-wifi{
